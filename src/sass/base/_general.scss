@@ -1,0 +1,30 @@
+@use "../abstracts/" as *;
+
+:where(html) {
+  scroll-behavior: smooth;
+  scroll-padding-top: 3rem;
+}
+
+:where(body) {
+  font-family: $body-font-family;
+  font-size: $body-font-size;
+  font-weight: $body-font-weight;
+  color: $body-text-color;
+  background-color: $body-background-color;
+  line-height: $body-line-height;
+}
+
+:where(p) {
+  max-width: $paragraph-max-width;
+  line-height: $paragraph-line-height;
+  text-wrap: $paragraph-text-wrap;
+}
+
+:where(button, a) {
+  display: inline-flex;
+}
+
+:where(img, picture, svg, video) {
+  display: block;
+  max-width: 100%;
+}

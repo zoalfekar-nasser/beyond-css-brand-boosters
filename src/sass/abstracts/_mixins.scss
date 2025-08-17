@@ -1,0 +1,67 @@
+@use "sass:map";
+@use "sass:meta";
+@use "sass:math";
+@use "breakpoints" as *;
+@use "functions" as *;
+
+@mixin media-min($min-breakpoint) {
+  $breakpoint: validate-breakpoint($min-breakpoint);
+
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-max($max-breakpoint) {
+  $breakpoint: validate-breakpoint($max-breakpoint);
+
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-range($min-breakpoint, $max-breakpoint) {
+  $min-breakpoint: validate-breakpoint($min-breakpoint);
+  $max-breakpoint: validate-breakpoint($max-breakpoint);
+
+  @media (min-width: $min-breakpoint) and (max-width: $max-breakpoint) {
+    @content;
+  }
+}
+
+@mixin generate-props-from-map($map, $prefix: "") { //! Enhanced Version from the mixin done by AI with Recursive 
+  @each $key, $value in $map {
+    // We construct the new key for the property.
+    // If there's no prefix, it's just the key. If there is, it's prefix-key.
+    $new-key: if($prefix == "", $key, "#{$prefix}-#{$key}");
+
+    // The magic is here: check the type of the value.
+    @if meta.type-of($value) == "map" {
+      // If the value is ANOTHER map, call the mixin again on that inner map,
+      // passing along the key we just built as the new prefix.
+      @include generate-props-from-map($value, $new-key);
+    } @else {
+      // If the value is a final value (not a map), we've hit the end.
+      // Generate the custom property.
+      --#{$new-key}: #{$value};
+    }
+  }
+}
+
+@mixin flex($justify: false, $align: false, $gap: $flex-gap, $dir: false) {
+  display: flex;
+  gap: $gap;
+
+  @if $justify {
+    justify-content: $justify;
+  }
+
+  @if $align {
+    align-items: $align;
+  }
+
+  @if $dir {
+    flex-direction: $dir;
+  }
+  @content;
+}

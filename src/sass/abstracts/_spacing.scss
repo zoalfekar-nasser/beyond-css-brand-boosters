@@ -1,0 +1,63 @@
+@use "functions" as *;
+
+$spaces: (
+  "xxs": clamp(0.25rem, 0.2375rem + 0.0625vw, 0.3125rem),
+  "xs": clamp(0.5rem, 0.475rem + 0.125vw, 0.625rem),
+  "s": clamp(0.75rem, 0.7125rem + 0.1875vw, 0.9375rem),
+  "base": clamp(1rem, 0.95rem + 0.25vw, 1.25rem),
+  "m": clamp(1.5rem, 1.425rem + 0.375vw, 1.875rem),
+  "l": clamp(2rem, 1.9rem + 0.5vw, 2.5rem),
+  "xl": clamp(3rem, 2.85rem + 0.75vw, 3.75rem),
+  "xxl": clamp(4rem, 3.8rem + 1vw, 5rem),
+);
+
+$fixed-spaces: (
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  5: 1.25rem,
+  6: 1.5rem,
+  7: 1.75rem,
+  8: 2rem,
+  9: 2.5rem,
+  10: 3rem,
+  11: 4rem,
+  12: 5rem,
+  13: 6rem,
+  14: 8rem,
+  15: 10rem,
+);
+
+@function clamp-space($space...) {
+  @return getMapValue("space", $clamp-spaces, $space...);
+}
+@function fixed-space($space...) {
+  @return getMapValue("space", $fixed-spaces, $space...);
+}
+
+$clamp-space-xxs: clamp-space(xxs);
+$clamp-space-xs: clamp-space(xs);
+$clamp-space-s: clamp-space(s);
+$clamp-space-base: clamp-space(base);
+$clamp-space-m: clamp-space(m);
+$clamp-space-l: clamp-space(l);
+$clamp-space-xl: clamp-space(xl);
+$clamp-space-xxl: clamp-space(xxl);
+
+$fixed-space-1: fixed-space(1);
+$fixed-space-2: fixed-space(2);
+$fixed-space-3: fixed-space(3);
+$fixed-space-4: fixed-space(4);
+$fixed-space-5: fixed-space(5);
+$fixed-space-6: fixed-space(6);
+$fixed-space-7: fixed-space(7);
+$fixed-space-8: fixed-space(8);
+$fixed-space-9: fixed-space(9);
+$fixed-space-10: fixed-space(10);
+$fixed-space-11: fixed-space(11);
+$fixed-space-12: fixed-space(12);
+$fixed-space-13: fixed-space(13);
+$fixed-space-14: fixed-space(14);
+$fixed-space-15: fixed-space(15);
+

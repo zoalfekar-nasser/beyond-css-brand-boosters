@@ -1,0 +1,8 @@
+@use "../abstracts/" as *;
+
+.#{$prefix} {
+  &footer {
+    background-color: $footer-background-color;
+    color: $footer-text-color;
+  }
+}
