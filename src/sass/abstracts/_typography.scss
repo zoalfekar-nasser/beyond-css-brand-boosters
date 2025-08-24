@@ -1,81 +1,77 @@
 @use "functions" as *;
 
-
-
-$font-families: (
-  "primary": "system-ui",
-  "secondary": '"Alegreya SC", serif',
+$font-families-map: (
+  "primary": "'Inter', sans-serif",
+  "secondary": "'Montserrat', sans-serif;",
 );
 
-$font-sizes-with-clamp: (
-  s: clamp(0.8889rem, 0.8667rem + 0.1111vw, 1rem),
-  base: clamp(1rem, 0.95rem + 0.25vw, 1.25rem),
-  m: clamp(1.125rem, 1.05rem + 0.375vw, 1.5rem),
-  l: clamp(1.2656rem, 1.1588rem + 0.5344vw, 1.8rem),
-  xl: clamp(1.4238rem, 1.2766rem + 0.7362vw, 2.16rem),
-  xxl: clamp(1.6018rem, 1.4038rem + 0.9902vw, 2.592rem),
-  xxxl: clamp(2.0736rem, 1.0961rem + 4.8873vw, 3.9609rem),
+$font-sizes-map: (
+  s: clamp(0.8889rem, 0.8867rem + 0.0111vw, 0.9rem),
+  base: clamp(1rem, 0.975rem + 0.125vw, 1.125rem),
+  m: clamp(1.125rem, 1.0688rem + 0.2813vw, 1.4063rem),
+  l: clamp(1.2656rem, 1.1672rem + 0.4922vw, 1.7578rem),
+  xl: clamp(1.5rem, 1.2691rem + 0.7734vw, 2rem),
+  xxl: clamp(2.25rem, 1.3729rem + 1.1448vw, 2.7466rem),
+  xxxl: clamp(2.625rem, 1.4758rem + 2vw, 3.5rem),
 );
 
-$font-sizes: (
-  "small": (
-    "400": 1rem,
-    "500": 1.125rem,
-    "600": 1.125rem,
-    "700": 1.75rem,
-    "800": 2.625rem,
-    "900": 3rem,
-  ),
-  "medium": (
-    "400": 1rem,
-    "500": 1.125rem,
-    "600": 1.5rem,
-    "700": 1.75rem,
-    "800": 2.75rem,
-    "900": 3.25rem,
-  ),
-  "large": (
-    "400": 1rem,
-    "500": 1.125rem,
-    "600": 1.3125rem,
-    "700": 1.75rem,
-    "800": 3rem,
-    "900": 3.75rem,
-  ),
-);
+// $font-sizes: (
+//   "small": (
+//     "400": 1rem,
+//     "500": 1.125rem,
+//     "600": 1.125rem,
+//     "700": 1.75rem,
+//     "800": 2.625rem,
+//     "900": 3rem,
+//   ),
+//   "medium": (
+//     "400": 1rem,
+//     "500": 1.125rem,
+//     "600": 1.5rem,
+//     "700": 1.75rem,
+//     "800": 2.75rem,
+//     "900": 3.25rem,
+//   ),
+//   "large": (
+//     "400": 1rem,
+//     "500": 1.125rem,
+//     "600": 1.3125rem,
+//     "700": 1.75rem,
+//     "800": 3rem,
+//     "900": 3.75rem,
+//   ),
+// );
 
-$font-weights: (
+$font-weights-map: (
   "400": 400,
   "600": 600,
   "700": 700,
 );
 
-
 @function ff($font-family...) {
-  @return getMapValue("font-family", $font-families, $font-family...);
+  @return getMapValue("font-family", $font-families-map, $font-family...);
 }
 @function fs($font-size...) {
-  @return getMapValue("font-size", $font-sizes, $font-size...);
+  @return getMapValue("font-size", $font-sizes-map, $font-size...);
 }
 @function fw($font-weight...) {
-  @return getMapValue("font-weight", $font-weights, $font-weight...);
+  @return getMapValue("font-weight", $font-weights-map, $font-weight...);
 }
 
-
 //? Font Families
-$font-family-primary:var(--ff-primary);
-$font-family-secondary:var(--ff-secondary);
-
+$font-family-primary: var(--ff-primary);
+$font-family-secondary: var(--ff-secondary);
 
 //? Font Sizes
-$font-size-400: var(--fs-400);
-$font-size-500: var(--fs-500);
-$font-size-600: var(--fs-600);
-$font-size-700: var(--fs-700);
-$font-size-800: var(--fs-800);
-$font-size-900: var(--fs-900);
+$font-size-s: var(--fs-s);
+$font-size-base: var(--fs-base);
+$font-size-m: var(--fs-m);
+$font-size-l: var(--fs-l);
+$font-size-xl: var(--fs-xl);
+$font-size-xxl: var(--fs-xxl);
+$font-size-xxxl: var(--fs-xxxl);
 
 //? Font Weights
-$font-weight-400:var(--fw-400);
-$font-weight-600:var(--fw-600);
-$font-weight-700:var(--fw-700);
+$font-weight-400: var(--fw-400);
+$font-weight-600: var(--fw-600);
+$font-weight-700: var(--fw-700);

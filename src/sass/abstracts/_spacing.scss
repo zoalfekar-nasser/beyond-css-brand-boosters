@@ -1,6 +1,6 @@
 @use "functions" as *;
 
-$spaces: (
+$clamp-spaces-map: (
   "xxs": clamp(0.25rem, 0.2375rem + 0.0625vw, 0.3125rem),
   "xs": clamp(0.5rem, 0.475rem + 0.125vw, 0.625rem),
   "s": clamp(0.75rem, 0.7125rem + 0.1875vw, 0.9375rem),
@@ -11,7 +11,7 @@ $spaces: (
   "xxl": clamp(4rem, 3.8rem + 1vw, 5rem),
 );
 
-$fixed-spaces: (
+$fixed-spaces-map: (
   1: 0.25rem,
   2: 0.5rem,
   3: 0.75rem,
@@ -30,10 +30,10 @@ $fixed-spaces: (
 );
 
 @function clamp-space($space...) {
-  @return getMapValue("space", $clamp-spaces, $space...);
+  @return getMapValue("space", $clamp-spaces-map, $space...);
 }
 @function fixed-space($space...) {
-  @return getMapValue("space", $fixed-spaces, $space...);
+  @return getMapValue("space", $fixed-spaces-map, $space...);
 }
 
 $clamp-space-xxs: clamp-space(xxs);
@@ -60,4 +60,3 @@ $fixed-space-12: fixed-space(12);
 $fixed-space-13: fixed-space(13);
 $fixed-space-14: fixed-space(14);
 $fixed-space-15: fixed-space(15);
-

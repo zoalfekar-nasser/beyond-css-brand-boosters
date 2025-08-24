@@ -11,9 +11,9 @@ $prefix: "zn-";
 //! Contextual
 
 $color-text-default: $color-neutral-700;
-$color-background-default: $color-primary-100;
-$color-text-interactive-default: $color-accent-400;
-$color-text-interactive-hover: $color-accent-500;
+$color-background-default: $color-neutral-000;
+$color-text-interactive-default: $color-primary-400;
+$color-text-interactive-hover: $color-accent-700;
 
 $box-shadow-1: 0px 6px 5px rgb(0, 0, 0, 0.012),
   0px 22px 18px rgb(0, 0, 0, 0.018), 0px 100px 80px rgb(0, 0, 0, 0.03);
@@ -30,10 +30,10 @@ $box-shadow-4: 0px 6px 5px rgb(0, 0, 0, 0.03), 0px 22px 18px rgb(0, 0, 0, 0.042)
 $box-shadow-5: 0px 6px 5px rgb(0, 0, 0, 0.04), 0px 22px 18px rgb(0, 0, 0, 0.06),
   0px 100px 80px rgb(0, 0, 0, 0.1);
 
-$border-radius-1: $fixed-space-2;
+$border-radius-1: $fixed-space-1;
 $border-radius-2: $fixed-space-4;
 
-$letter-spacing-width: 0.16em;
+$letter-spacing-width: 0;
 
 $transition-1: 275ms;
 $transition-2: 300ms;
@@ -52,14 +52,6 @@ $body-background-color: $color-background-default;
 
 $body-line-height: 1.2;
 
-//! Paragraphs
-
-$paragraph-max-width: 65ch;
-
-$paragraph-line-height: 1.5;
-
-$paragraph-text-wrap: pretty;
-
 //! Layout (Global)
 $wrapper-width: min(var(--wrapper-width, $global-wrapper-width), 100%);
 $wrapper-padding-inline: var(--wrapper-padding, $clamp-space-base);
@@ -71,15 +63,27 @@ $flex-gap: var(--flex-gap, $global-flex-gap);
 $grid-min-col-width-default: 300px;
 $grid-gap: var(--grid-gap, $global-grid-gap);
 
+//! Paragraphs
+
+$paragraph-max-width: 43ch;
+
+$paragraph-line-height: 1.7;
+
+$paragraph-text-wrap: pretty;
+
 //!Buttons
 
-$button-background-color: var(--btn-bg, $color-primary-700);
+$button-background-color: var(--btn-bg, transparent);
 
-$button-text-color: var(--btn-text, $color-primary-100);
+$button-text-color: var(--btn-text, $color-primary-700);
 
-$button-padding: $fixed-space-3 $fixed-space-8;
+$button-background-color-hover: var(--btn-bg-hover, $color-neutral-100);
 
-$button-font-weight: $font-weight-700;
+$button-text-color-hover: var(--btn-text-hover, $color-primary-700);
+
+$button-padding: $clamp-space-s $clamp-space-m;
+
+$button-font-weight: $font-weight-400;
 
 $button-transition: $transition-1;
 
@@ -87,63 +91,47 @@ $button-border-radius: $border-radius-1;
 
 //*Buttons Colors
 
-$button-primary-background-color: $color-primary-700;
+$button-primary-background-color: $color-primary-400;
 
-$button-primary-background-color-hover: $color-primary-800;
+$button-primary-background-color-hover: $color-primary-200;
 
-$button-primary-text-color: $color-primary-100;
+$button-primary-text-color: $color-neutral-000;
 
-$button-primary-text-color-hover: $color-primary-100;
+$button-primary-text-color-hover: $color-primary-700;
 
 $button-accent-background-color: $color-accent-400;
 
-$button-accent-background-color-hover: $color-accent-500;
+$button-accent-background-color-hover: $color-accent-200;
 
-$button-accent-text-color: $color-neutral-100;
+$button-accent-text-color: $color-primary-700;
 
-$button-accent-text-color-hover: $color-neutral-100;
+$button-accent-text-color-hover: $color-primary-700;
+
+$button-link-button-background-color: $color-neutral-000;
+
+$button-link-button-background-color-hover: $color-neutral-100;
 
 //! Cards
-
-//? Services Cards
-$services-card-min-col-width: 315px;
-
-$services-card-flow-spacing: $clamp-space-xs;
-
-$services-card-text-align: center;
-
-$services-card-padding: $clamp-space-l $clamp-space-m;
-
-$services-card-border-radius: $border-radius-2;
-
-$services-card-shadow: $box-shadow-1;
-
-$services-card-background-color: var(--card-bg, $body-background-color);
-
-$services-card-text-color: var(--card-text, $body-text-color);
 
 //!Headings
 
 $heading-text-color-default: $color-primary-700;
 $heading-letter-spacing: $letter-spacing-width;
 $heading-font-family: $font-family-secondary;
-$heading-text-transform: uppercase;
+$heading-text-transform: none;
 $heading-font-weight: $font-weight-700;
 
 $heading-subtitle-font-size: $font-size-m;
 $heading-subtitle-margin: 0.5em;
 
-$main-heading-color: $color-accent-400;
+$main-heading-color: $color-primary-700;
 $main-heading-font-size: $font-size-xxxl;
 
-$section-heading-color: $color-accent-400;
-$section-heading-font-size: $font-size-xl;
+$section-heading-color: $color-primary-700;
+$section-heading-font-size: $font-size-xxl;
 
-$card-1-heading-color: $color-primary-700;
+$card-1-heading-color: $color-neutral-700;
 $card-1-heading-font-size: $font-size-m;
-
-$card-2-heading-color: $color-primary-400;
-$card-2-heading-font-size: $font-size-l;
 
 //! Flow
 
@@ -153,80 +141,190 @@ $flow-small-space: $clamp-space-s;
 $flow-medium-space: $clamp-space-m;
 $flow-large-space: $clamp-space-l;
 
-//! Forms
+//! Forms (not currently being used)
 
 //* From Content Styles
 
-$from-content-gap: $clamp-space-base;
+// $form-content-gap: $clamp-space-base;
 
-$form-content-columns-mobile: 1fr;
+// $form-content-columns-mobile: 1fr;
 
-$form-content-columns-desktop: 1fr 1fr;
+// $form-content-columns-desktop: 1fr 1fr;
 
 //* input-box & input & labels Styles
 
-$form-input-padding: $clamp-space-xs;
+// $form-input-padding: $clamp-space-xs;
 
-$form-input-border: 2px $color-primary-200 solid;
+// $form-input-border: 2px $color-primary-200 solid;
 
-$form-input-border-color-hover: $color-accent-400;
+// $form-input-border-color-hover: $color-accent-400;
 
-$form-input-border-radius: $border-radius-1;
+// $form-input-border-radius: $border-radius-1;
 
-$form-input-placeholder-color: $color-primary-300;
+// $form-input-placeholder-color: $color-primary-400;
 
-$form-label-font-weight: $font-weight-700;
+// $form-label-font-weight: $font-weight-700;
 
-$form-input-box-gap: $clamp-space-xxs;
+// $form-input-box-gap: $clamp-space-xxs;
 
-//! Theme Switcher & Theme List & Theme Button
+//! Theme Switcher & Theme List & Theme Button (not currently being used)
 
-$theme-switcher-icon-size: 1.85rem;
+// $theme-switcher-icon-size: 1.85rem;
 
-$theme-list-border: none;
+// $theme-list-border: none;
 
-$theme-margin-block-start: $fixed-space-1;
+// $theme-margin-block-start: $fixed-space-1;
 
-$theme-list-border-radius: $border-radius-1 $border-radius-1 $border-radius-2
-  $border-radius-2;
+// $theme-list-border-radius: $border-radius-1 $border-radius-1 $border-radius-2
+//   $border-radius-2;
 
-$theme-list-box-shadow: $shadow-2;
+// $theme-list-box-shadow: $box-shadow-2;
 
-$heme-list-gap-between: $fixed-space-1;
+// $heme-list-gap-between: $fixed-space-1;
 
-$theme-button-padding: $fixed-space-2 $fixed-space-4;
+// $theme-button-padding: $fixed-space-2 $fixed-space-4;
 
-$theme-button-text-color: $color-primary-100;
+// $theme-button-text-color: $color-primary-100;
 
-$theme-button-background-color: transparent;
+// $theme-button-background-color: transparent;
 
-$theme-button-letter-spacing: $letter-spacing-width;
+// $theme-button-letter-spacing: $letter-spacing-width;
 
-$theme-button-border-radius: $border-radius-1;
+// $theme-button-border-radius: $border-radius-1;
 
 //! Sections Based Tokens
 
 //? Header
 
-$header-logo-link-color: $color-primary-300;
+$header-logo-link-color: $color-primary-400;
 
-$header-font-family: $font-family-secondary;
+$header-font-family: $font-family-primary;
 
-$header-background-color: $color-header-footer;
+$header-background-color: $color-primary-100;
 
 $header-padding-block: $clamp-space-m;
 
 $header-letter-spacing: $letter-spacing-width;
 
-$header-navigation-links-transform: uppercase;
+//? Navigation
 
-$header-navigation-links-color: $color-primary-100;
+$header-navigation-links-transform: capitalize;
 
-$header-navigation-links-font-weight: $font-weight-700;
+$header-navigation-links-color: $color-text-interactive-default;
+
+$header-navigation-links-color-hover: $color-text-interactive-hover;
+
+$header-navigation-links-font-weight: $font-weight-400;
 
 $header-navigation-gap-between: $clamp-space-base;
+
 //? Footer
 
-$footer-background-color: $color-header-footer;
+$footer-content-padding-block: $fixed-space-6;
 
-$footer-text-color: $color-primary-200;
+$footer-links-border-bottom: 1px solid $color-neutral-100;
+
+$footer-link-color: $color-neutral-700;
+
+$footer-link-color-hover: $color-primary-700;
+
+$footer-description-font-size: $font-size-s;
+
+$footer-description-color: $color-neutral-400;
+
+//! Home Page
+//? Hero
+
+$hero-content-gap: $clamp-space-l;
+
+//? About
+
+$about-columns-mobile: 1fr;
+
+$about-content-gap: $clamp-space-m;
+
+$about-align-items: center;
+
+$about-columns-desktop: 1fr 1fr;
+
+$about-image-background-color: $color-primary-200;
+
+$about-image-border-radius: 30rem 30rem 0 0;
+
+$about-image-padding: $fixed-space-12 $fixed-space-9 0;
+
+//? Features
+
+$features-columns-mobile: 1fr;
+
+$features-content-gap: $clamp-space-m;
+
+$features-columns-desktop: 1fr 1fr 1fr;
+
+//? Features Cards
+
+$feature-card-background-color: var(--feature-background, $color-primary-100);
+
+$feature-card-padding: $clamp-space-m;
+
+$feature-card-border-radius: $border-radius-2;
+
+$feature-card-link-color: var(--feature-link-color, $color-primary-700);
+
+$feature-card-svg-color: var(--feature-svg-color, $color-primary-400);
+
+$feature-card-rows: max-content max-content 1fr;
+
+$feature-card-gap: $clamp-space-m;
+
+$feature-card-description-max-length: 25ch;
+
+$feature-card-description-padding-bottom: $clamp-space-m;
+
+//! Pricing Page
+
+$plan-price-font-size: $font-size-xxl;
+
+$plan-card-padding: $clamp-space-m;
+
+$plan-card-border-radius: $border-radius-2;
+
+$plan-card-background-color: $color-primary-100;
+
+$plan-card-color: $color-primary-700;
+
+$plan-card-category-font-size: $font-size-m;
+
+$plan-card-target-font-size: $font-size-m;
+
+$plan-card-gap: $clamp-space-m;
+
+$plan-card-heading-gap: $clamp-space-s;
+
+$plan-card-checkmark-color: $color-accent-400;
+
+$plans-compare-margin-top: $clamp-space-xxl;
+
+$plans-compare-heading-margin-bottom: $clamp-space-xxl;
+
+$plans-table-min-width: 850px;
+
+$plans-table-color: $color-primary-700;
+
+$plans-table-font-family: $font-family-secondary;
+
+$plans-table-td-padding-block: $clamp-space-m;
+
+$plans-table-th-font-weight: $font-weight-400;
+
+$plans-table-th-row-font-size: $font-size-base;
+
+//? Contact
+
+$contact-background-color: $color-accent-100;
+
+$contact-content-gap: $clamp-space-l;
+
+$contact-description-color: $color-primary-700;
+
+$contact-description-font-family: $font-family-secondary;

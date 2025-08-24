@@ -4,7 +4,7 @@
 :root {
   // --- 1. Generate standard, non-responsive properties ---
 
-  // @include generate-props-from-map($colors-map, "clr");
+  @include generate-props-from-map($colors-map, "clr");
   @include generate-props-from-map($font-families-map, "ff");
   @include generate-props-from-map($font-weights-map, "fw");
   @include generate-props-from-map($globals-map, "gl");
@@ -22,24 +22,55 @@
   // }
 
   //! Themes Handling
-  @each $theme-name, $theme-map in $themes-map {
-    &[data-theme="#{$theme-name}"] {
-      @include generate-props-from-map($theme-map, "clr");
-    }
-  }
+  // @each $theme-name, $theme-map in $themes-map {
+  //   &[data-theme="#{$theme-name}"] {
+  //     @include generate-props-from-map($theme-map, "clr");
+  //   }
+  // }
 
-  @media (prefers-color-scheme: light) {
-    @each $theme-name, $theme-map in $themes-map {
-      @if ($theme-name == "default") {
-        @include generate-props-from-map($theme-map, "clr");
-      }
-    }
+  // @media (prefers-color-scheme: light) {
+  //   @each $theme-name, $theme-map in $themes-map {
+  //     @if ($theme-name == "default") {
+  //       @include generate-props-from-map($theme-map, "clr");
+  //     }
+  //   }
+  // }
+  // @media (prefers-color-scheme: dark) {
+  //   @each $theme-name, $theme-map in $themes-map {
+  //     @if ($theme-name == "dark") {
+  //       @include generate-props-from-map($theme-map, "clr");
+  //     }
+  //   }
+  // }
+}
+
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.5s ease-out forwards;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.5s ease-in forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
   }
-  @media (prefers-color-scheme: dark) {
-    @each $theme-name, $theme-map in $themes-map {
-      @if ($theme-name == "dark") {
-        @include generate-props-from-map($theme-map, "clr");
-      }
-    }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

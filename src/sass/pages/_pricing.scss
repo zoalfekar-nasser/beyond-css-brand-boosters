@@ -1,0 +1,112 @@
+@use "../abstracts/" as *;
+
+.plan-price {
+  strong {
+    font-size: $plan-price-font-size;
+  }
+}
+
+
+.plans-cards {
+  grid-template-rows: max-content 1fr max-content;
+}
+
+
+.plan-card {
+  padding: $plan-card-padding;
+  border-radius: $plan-card-border-radius;
+  background-color: $plan-card-background-color;
+  color: $plan-card-color;
+  font-family: $font-family-secondary;
+  display: grid;
+  gap: $plan-card-gap;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+
+  &__heading {
+    display: grid;
+    gap: $clamp-space-s;
+    text-align: center;
+  }
+  &__category {
+    font-size: $plan-card-category-font-size;
+  }
+
+  &__price {
+    @extend .plan-price;
+  }
+
+  &__target {
+    font-size: $plan-card-target-font-size;
+  }
+
+  &__features {
+    display: grid;
+    gap: $clamp-space-s;
+    grid-auto-rows: max-content;
+  }
+
+  &__feature {
+    @include flex($gap: $clamp-space-s);
+    svg {
+      fill: $plan-card-checkmark-color;
+    }
+  }
+}
+
+
+.plans-compare {
+  margin-top: $plans-compare-margin-top;
+}
+.table-container {
+  overflow-x: auto;
+}
+
+.plans-table {
+  width: 100%;
+  min-width: $plans-table-min-width;
+  color: $plans-table-color;
+  font-family: $plans-table-font-family;
+  svg {
+    stroke: $plan-card-checkmark-color;
+    margin-inline: auto;
+  }
+  td {
+    padding-block: $plans-table-td-padding-block;
+    position: relative;
+  }
+  th {
+    font-weight: $plans-table-th-font-weight;
+    &[scope="row"] {
+      width: 250px;
+      text-align: start;
+      font-size: $plans-table-th-row-font-size;
+    }
+  }
+
+  .heading-title {
+    text-align: start;
+    margin-bottom: $plans-compare-heading-margin-bottom;
+
+    &:hover {
+      animation: slide-to-left 0.5s ease-in both;
+    }
+  }
+}
+
+
+.contact {
+  background-color: $contact-background-color;
+
+  &__content {
+    display: grid;
+    justify-items: center;
+    gap: $contact-content-gap;
+  }
+
+  &__description {
+    max-width: 57ch;
+    color: $contact-description-color;
+    font-family: $contact-description-font-family;
+  }
+}

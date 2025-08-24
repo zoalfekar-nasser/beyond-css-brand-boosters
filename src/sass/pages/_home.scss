@@ -1,2 +1,131 @@
-@use "../base/" as *;
 @use "../abstracts/" as *;
+
+.hero {
+  &__content {
+    --grid-gap: #{$hero-content-gap};
+    align-items: center;
+
+    img {
+      height: clamp(350px, 25vmax + 0.5rem, 450px);
+      object-fit: cover;
+    }
+  }
+}
+
+.about {
+  padding-top: $section-padding;
+  .heading-title {
+    --heading-color: #{$color-neutral-000};
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: $about-columns-mobile;
+    gap: $about-content-gap;
+    align-items: $about-align-items;
+
+    @include media-min(medium) {
+      grid-template-columns: $about-columns-desktop;
+    }
+
+    .img-col {
+      background-color: $about-image-background-color;
+      border-radius: $about-image-border-radius;
+      padding: $about-image-padding;
+    }
+  }
+
+  @include media-min(medium) {
+    padding-top: $fixed-space-4;
+  }
+}
+
+.features {
+  &__content {
+    display: grid;
+    grid-template-columns: $features-columns-mobile;
+    gap: $features-content-gap;
+    @include media-min(medium) {
+      grid-template-columns: $features-columns-desktop;
+    }
+  }
+}
+.feature {
+  display: grid;
+  grid-template-rows: $feature-card-rows;
+  gap: $feature-card-gap;
+  padding: $feature-card-padding;
+  border-radius: $feature-card-border-radius;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  background-color: $feature-card-background-color;
+  &[data-feature-color="green"] {
+    --feature-background: #{$color-accent-100};
+    --feature-link-color: #{$color-accent-700};
+    --feature-svg-color: #{$color-accent-400};
+  }
+  &[data-feature-color="yellow"] {
+    --feature-background: #{$color-yellow-300};
+    --feature-link-color: #{$color-yellow-500};
+    --feature-svg-color: #{$color-yellow-400};
+    @include media-min(medium) {
+      --svg-width: 600px;
+      --svg-height: 110%;
+      --svg-translate: translate(30%, 14%);
+    }
+  }
+  &[data-feature-color="pink"] {
+    --feature-background: #{$color-pink-300};
+    --feature-link-color: #{$color-pink-500};
+    --feature-svg-color: #{$color-pink-400};
+    @include media-min(medium) {
+      --svg-width: 600px;
+      --svg-height: 135%;
+      --svg-translate: translate(25%, 13%);
+    }
+  }
+  &[data-feature-color="cyan"] {
+    --feature-background: #{$color-cyan-300};
+    --feature-link-color: #{$color-cyan-500};
+    --feature-svg-color: #{$color-cyan-400};
+  }
+
+  &[data-feature="extended"] {
+    @include media-min(medium) {
+      grid-column: span 2;
+    }
+  }
+
+  &__description {
+    max-width: $feature-card-description-max-length;
+    padding-bottom: $feature-card-description-padding-bottom;
+  }
+
+  &__link {
+    color: $feature-card-link-color;
+    place-self: end left;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+    }
+  }
+
+  &__img {
+    fill: $feature-card-svg-color;
+    position: absolute;
+    z-index: -1;
+    right: var(--svg-right, 0);
+    bottom: var(--svg-bottom, 0);
+    transform: var(--svg-translate, translate(15%, 42%));
+    width: var(--svg-width, 200px);
+    height: var(--svg-height, 150px);
+  }
+}

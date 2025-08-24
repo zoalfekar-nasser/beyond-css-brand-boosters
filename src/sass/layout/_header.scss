@@ -1,36 +1,41 @@
 @use "../abstracts/" as *;
 
-.#{$prefix} {
-  &header {
-    background-color: $header-background-color;
-    padding-block: $header-padding-block;
-    font-family: $header-font-family;
-    letter-spacing: $header-letter-spacing;
-    // position: relative;
-    &__content {
-      @include flex(center, center, $clamp-space-l, column) {
-        @include media-min(medium) {
-          justify-content: space-between;
-          flex-direction: row;
-        }
+.header {
+  background-color: $header-background-color;
+  padding-block: $header-padding-block;
+  font-family: $header-font-family;
+  letter-spacing: $header-letter-spacing;
+  &__content {
+    @include flex(center, center, $clamp-space-l, column) {
+      @include media-min(medium) {
+        justify-content: space-between;
+        flex-direction: row;
       }
     }
   }
 }
 
-.#{$prefix} {
-  &navigation {
-    &__links {
-      @include flex(center, center) {
-        gap: $clamp-space-s $clamp-space-l;
-        flex-wrap: wrap;
-      }
-    }
+.navigation {
 
-    &__link {
-      font-weight: $header-navigation-links-font-weight;
-      color: $header-navigation-links-color;
-      text-transform: $header-navigation-links-transform;
+  display:  none;
+  &__links {
+    @include flex(center, center) {
+      gap: $clamp-space-l;
     }
+  }
+
+  &__link {
+    font-weight: $header-navigation-links-font-weight;
+    color: $header-navigation-links-color;
+    text-transform: $header-navigation-links-transform;
+    transition: color $transition-1;
+    &:is(:hover, :focus-visible) {
+      color: $header-navigation-links-color-hover;
+      text-decoration: dotted underline;
+    }
+  }
+
+  @include media-min(small) {
+    display: block;
   }
 }

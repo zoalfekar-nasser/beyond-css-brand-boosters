@@ -1,8 +1,51 @@
 @use "../abstracts/" as *;
 
-.#{$prefix} {
-  &footer {
-    background-color: $footer-background-color;
-    color: $footer-text-color;
+.footer {
+
+
+  &__content {
+    > * {
+      padding-block: $footer-content-padding-block;
+    }
+  }
+
+  nav {
+
+    border-bottom: $footer-links-border-bottom;
+  }
+
+  &__links {
+    @include flex(center, center, $clamp-space-m) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__link {
+    color: $footer-link-color;
+    transition: color $transition-1;
+
+    &:is(:hover, :focus-visible) {
+      color: $footer-link-color-hover;
+    }
+  }
+
+  &__description {
+    @include flex(center, center, $fixed-space-8) {
+      flex-wrap: wrap;
+    }
+    font-size: $footer-description-font-size;
+    color: $footer-description-color;
+    ul {
+      @include flex(center, center, $fixed-space-8);
+      margin: 0;
+      padding: 0;
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  &[data-padding-top="0"] {
+  --section-padding: 0 var(--gl-section-padding);
   }
 }
