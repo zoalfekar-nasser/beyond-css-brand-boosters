@@ -1,2 +1,155 @@
-@use "../base/" as *;
 @use "../abstracts/" as *;
+
+.careers {
+  &__content {
+    position: relative;
+  }
+
+  .button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100vw;
+  }
+
+  img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+}
+
+.benefits {
+  &__content {
+    display: grid;
+    grid-template-columns: $benefits-grid-columns-mobile;
+    gap: $benefits-grid-gap-mobile;
+
+    @include media-min(medium) {
+      grid-template-columns: $benefits-grid-columns-desktop;
+      gap: $benefits-grid-gap-desktop;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    @include media-min(medium) {
+      order: -1;
+    }
+  }
+  p {
+    max-width: $benefits-text-max-width;
+  }
+}
+
+.feature-benefits {
+  --grid-gap: #{$feature-benefits-columns-gap};
+  &__panel {
+    width: 100%;
+    padding-block: $feature-benefits-panel-padding-block;
+    color: $feature-benefits-panel-color;
+    background-color: $feature-benefits-panel-background-color;
+    font-family: $feature-benefits-panel-font-family;
+    font-size: $feature-benefits-panel-font-size;
+    svg {
+      stroke: $color-neutral-000;
+    }
+    path {
+      fill: $color-neutral-000;
+    }
+    @include flex(space-between, center);
+    &[data-active] {
+      font-weight: $font-weight-700;
+      svg {
+        stroke: $color-accent-200;
+        fill: $color-accent-200;
+      }
+      path {
+        fill: $color-primary-700;
+        stroke: $color-primary-700;
+      }
+    }
+  }
+
+  &__panels {
+    li:not(:first-child) {
+      border-top: 1px solid currentColor;
+    }
+  }
+
+  p {
+    max-width: 60ch;
+    text-wrap: balance;
+  }
+}
+
+.services {
+  --grid-min-col-width: #{$services-min-col-width};
+  --p-color: #{$services-text-color};
+  &__card {
+    display: grid;
+    gap: $clamp-space-xs;
+
+    &:nth-child(1) {
+      --svg-color: #{$color-accent-400};
+    }
+    &:nth-child(2) {
+      --svg-color: #{$color-pink-400};
+    }
+    &:nth-child(3) {
+      --svg-color: #{$color-yellow-400};
+    }
+    &:nth-child(4) {
+      --svg-color: #{$color-cyan-400};
+    }
+  }
+  svg {
+    fill: var(--svg-color);
+  }
+  .heading-title {
+    --heading-color: #{$services-heading-color};
+  }
+}
+
+.testimonials {
+  &__heading {
+    color: $testimonials-heading-color;
+    font-size: $testimonials-heading-font-size;
+    font-weight: $testimonials-heading-font-weight;
+    font-family: $testimonials-heading-font-family;
+  }
+}
+
+.testimonial {
+  display: grid;
+  grid-template-columns: $testimonial-grid-columns-mobile;
+  gap: $testimonial-grid-gap;
+  align-items: center;
+
+  @include media-min(medium) {
+    grid-template-columns: $testimonial-grid-columns-desktop;
+  }
+
+  &__description {
+    max-width: $testimonial-description-max-width;
+    font-size: $testimonial-description-font-size;
+    font-family: $testimonial-description-font-family;
+    position: relative;
+
+    &::before {
+      content: open-quote;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-100%, 20%);
+    }
+  }
+
+  &__img {
+    width: $testimonial-image-width;
+    border-radius: $testimonial-image-border-radius;
+  }
+}

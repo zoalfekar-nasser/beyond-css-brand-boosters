@@ -1,0 +1,20 @@
+@use "../abstracts/" as *;
+
+
+@each $font-size-name, $font-size-value in $font-sizes-map {
+  .fs-#{$font-size-name} {
+    font-size: $font-size-value;
+  }
+}
+
+@each $font-weight-name, $font-weight-value in $font-weights-map {
+  .fw-#{$font-weight-name} {
+    font-weight: $font-weight-value;
+  }
+}
+
+@each $font-family-name, $font-family-value in $font-families-map {
+  .ff-#{$font-family-name} {
+    font-family: $font-family-value;
+  }
+}

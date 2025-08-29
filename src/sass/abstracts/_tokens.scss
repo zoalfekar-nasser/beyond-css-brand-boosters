@@ -72,6 +72,7 @@ $paragraph-line-height: 1.7;
 $paragraph-text-wrap: pretty;
 
 //!Buttons
+$button-width: max-content;
 
 $button-background-color: var(--btn-bg, transparent);
 
@@ -328,3 +329,66 @@ $contact-content-gap: $clamp-space-l;
 $contact-description-color: $color-primary-700;
 
 $contact-description-font-family: $font-family-secondary;
+
+
+//! About Page
+
+//? Benefits section
+
+$benefits-grid-columns-mobile:1fr;
+
+$benefits-grid-columns-desktop: clamp(300px, 25vw, 350px) 1fr;
+
+$benefits-grid-gap-mobile: $clamp-space-m;
+
+$benefits-grid-gap-desktop: $clamp-space-xxl;
+
+$benefits-text-max-width: 60ch;
+
+
+//? Feature Benefits
+
+$feature-benefits-columns-gap:$clamp-space-xxl;
+
+$feature-benefits-panel-padding-block:$clamp-space-s;
+
+$feature-benefits-panel-color:$color-neutral-000;
+
+$feature-benefits-panel-background-color:transparent;
+
+$feature-benefits-panel-font-family:$font-family-secondary;
+
+$feature-benefits-panel-font-size:$font-size-l;
+
+//? Services
+
+$services-min-col-width: 400px;
+
+$services-text-color: $color-neutral-400;
+
+$services-heading-color: $color-primary-700;
+
+//? Testimonials
+
+$testimonials-heading-color: $color-neutral-400;
+
+$testimonials-heading-font-size: $font-size-base;
+
+$testimonials-heading-font-weight: $font-weight-400;
+
+$testimonials-heading-font-family: $font-family-secondary;
+
+$testimonial-grid-columns-mobile: 1fr;
+
+$testimonial-grid-gap: $clamp-space-m;
+
+$testimonial-grid-columns-desktop: 1fr auto;
+
+$testimonial-description-max-width: 50ch;
+
+$testimonial-description-font-size: $font-size-m;
+
+$testimonial-description-font-family: $font-family-secondary;
+
+$testimonial-image-width:250px;
+$testimonial-image-border-radius: 100vw 100vw 100vw 1rem ;

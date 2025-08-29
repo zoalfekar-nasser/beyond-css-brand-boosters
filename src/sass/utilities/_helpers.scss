@@ -9,15 +9,17 @@
   text-wrap: balance;
 }
 
+.text-pretty {
+  text-wrap: pretty;
+}
+
 .section-padding {
   padding-block: $section-padding;
 }
 
 .normal-text {
   color: var(--p-color, var(--clr-neutral-500));
-  line-height: $paragraph-line-height;
-  text-wrap: $paragraph-text-wrap;
-  max-width: $paragraph-max-width;
+
 }
 
 .mi-auto {
@@ -65,6 +67,11 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* Prevents line breaks from affecting layout */
   border: 0;
+}
+
+.stars {
+  font-size: $font-size-xl;
+  color: $color-yellow-400;
 }
 
 .radius-1 {

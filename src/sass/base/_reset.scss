@@ -13,7 +13,7 @@
   text-decoration: none;
 }
 
-:where(h1, h2, h3, h4, dd, dt, dl, p, body) {
+:where(h1, h2, h3, h4, dd, dt, dl, p, figure, blockquote, body) {
   margin: 0;
 }
 

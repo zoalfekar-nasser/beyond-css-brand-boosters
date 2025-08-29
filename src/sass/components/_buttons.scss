@@ -1,5 +1,4 @@
 @use "../abstracts/" as *;
-@use "../base/" as *;
 
 .buttons {
   @include flex() {
@@ -7,7 +6,9 @@
   }
 }
 
+
 .button {
+  width: $button-width;
   background-color: $button-background-color;
   color: $button-text-color;
   padding: $button-padding;
