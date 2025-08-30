@@ -77,40 +77,40 @@ The project is built and optimized using **Vite**, a modern front-end build tool
 
 - [Node.js](https://nodejs.org/) (version 18.x or higher recommended)
 
-### Installation & Local Development
+### Installation & Setup
 
 1.  **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/zoalfekar-nasser/beyond-css-brandboosters
+    ```sh
+    git clone https://github.com/zoalfekar-nasser/beyond-css-brandboosters.git
+    ```
+
+2.  **Navigate to the project directory:**
+
+    ```sh
     cd beyond-css-brandboosters
     ```
 
-2.  **Install dependencies:**
-
-    ```bash
+3.  **Install NPM packages:**
+    ```sh
     npm install
     ```
 
-3.  **Start the development server:**
-    ```bash
+### Running the Project
+
+1.  **Start the development server:**
+
+    ```sh
     npm run dev
     ```
-    The server will start, and you can view the project at `http://localhost:5173`. Vite provides Hot Module Replacement (HMR) for instant updates.
 
-### Building for Production
+    This command will start the Vite development server. You can view the project in your browser at `http://localhost:5173` (or the port Vite indicates).
 
-To create an optimized, production-ready build:
-
-```bash
-npm run build
-```
-
-This command will compile, bundle, and optimize all files into the `/dist` directory. You can preview the production build locally with:
-
-```bash
-npm run preview
-```
+2.  **Build for production:**
+    ```sh
+    npm run build
+    ```
+    This command will create a `dist` folder with the optimized, minified files ready for deployment.
 
 ---
 
